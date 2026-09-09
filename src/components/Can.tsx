@@ -26,9 +26,14 @@ export function Can({
         ? [permission]
         : permissions;
 
+    const hasRequiredPermissions = usePermissions(
+        requiredPermissions,
+        mode
+    );
+
     const allowed =
         requiredPermissions.length > 0 &&
-        usePermissions(requiredPermissions, mode);
+        hasRequiredPermissions;
 
     return allowed ? children : fallback;
 }

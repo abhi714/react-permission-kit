@@ -127,4 +127,40 @@ describe("<Can />", () => {
             screen.getByText("Create allowed")
         ).toBeInTheDocument();
     });
+
+    it("does not render children when no permission is provided", () => {
+        render(
+            <PermissionProvider permissions={["user.view"]}>
+                <Can>
+                    <button>Restricted Action</button>
+                </Can>
+            </PermissionProvider>
+        );
+
+        expect(
+            screen.queryByRole("button", {
+                name: "Restricted Action",
+            })
+        ).not.toBeInTheDocument();
+    });
+
+    it("renders fallback when no permission is provided", () => {
+        render(
+            <PermissionProvider permissions={["user.view"]}>
+                <Can fallback={<span>Access denied</span>}>
+                    <button>Restricted Action</button>
+                </Can>
+            </PermissionProvider>
+        );
+
+        expect(
+            screen.getByText("Access denied")
+        ).toBeInTheDocument();
+
+        expect(
+            screen.queryByRole("button", {
+                name: "Restricted Action",
+            })
+        ).not.toBeInTheDocument();
+    });
 });
