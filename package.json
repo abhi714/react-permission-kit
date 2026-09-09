@@ -16,7 +16,8 @@
   "files": [
     "dist",
     "README.md",
-    "DOCUMENTATION.md"
+    "DOCUMENTATION.md",
+    "LICENSE"
   ],
   "keywords": [
     "react",
@@ -31,6 +32,14 @@
     "typescript"
   ],
   "author": "Abhishek Bhatt",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/abhi714/react-permission-kit.git"
+  },
+  "bugs": {
+    "url": "https://github.com/abhi714/react-permission-kit/issues"
+  },
+  "homepage": "https://github.com/abhi714/react-permission-kit#readme",
   "license": "ISC",
   "scripts": {
     "build": "tsup",
