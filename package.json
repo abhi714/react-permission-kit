@@ -3,13 +3,33 @@
   "version": "0.1.0",
   "description": "Lightweight permission management for React applications",
   "type": "module",
-  "main": "./dist/index.js",
-  "module": "./dist/index.mjs",
+  "main": "./dist/index.cjs",
+  "module": "./dist/index.js",
   "types": "./dist/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.js",
+      "require": "./dist/index.cjs"
+    }
+  },
   "files": [
-    "dist"
+    "dist",
+    "README.md",
+    "DOCUMENTATION.md"
   ],
-  "keywords": [],
+  "keywords": [
+    "react",
+    "permissions",
+    "rbac",
+    "pbac",
+    "authorization",
+    "access-control",
+    "roles",
+    "can",
+    "permission-guard",
+    "typescript"
+  ],
   "author": "Abhishek Bhatt",
   "license": "ISC",
   "scripts": {
