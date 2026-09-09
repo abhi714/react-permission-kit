@@ -11,17 +11,17 @@ describe("Permission Engine", () => {
     const permissions = [
         "user.view",
         "user.create",
-        "report.view",
+        "user.edit",
     ];
 
     describe("hasPermission", () => {
-        it("returns true when permission exists", () => {
+        it("returns true when the user has the permission", () => {
             expect(
                 hasPermission(permissions, "user.view")
             ).toBe(true);
         });
 
-        it("returns false when permission does not exist", () => {
+        it("returns false when the user does not have the permission", () => {
             expect(
                 hasPermission(permissions, "user.delete")
             ).toBe(false);
@@ -29,73 +29,96 @@ describe("Permission Engine", () => {
     });
 
     describe("hasAnyPermission", () => {
-        it("returns true when at least one permission exists", () => {
+        it("returns true when the user has at least one required permission", () => {
             expect(
-                hasAnyPermission(
-                    permissions,
-                    ["user.delete", "user.create"]
-                )
+                hasAnyPermission(permissions, [
+                    "user.delete",
+                    "user.edit",
+                ])
             ).toBe(true);
         });
 
-        it("returns false when none of the permissions exist", () => {
+        it("returns false when the user has none of the required permissions", () => {
             expect(
-                hasAnyPermission(
-                    permissions,
-                    ["user.delete", "report.delete"]
-                )
+                hasAnyPermission(permissions, [
+                    "user.delete",
+                    "user.export",
+                ])
+            ).toBe(false);
+        });
+
+        it("returns true for an empty required permission list", () => {
+            expect(
+                hasAnyPermission(permissions, [])
             ).toBe(false);
         });
     });
 
     describe("hasAllPermissions", () => {
-        it("returns true when all permissions exist", () => {
+        it("returns true when the user has all required permissions", () => {
             expect(
-                hasAllPermissions(
-                    permissions,
-                    ["user.view", "user.create"]
-                )
+                hasAllPermissions(permissions, [
+                    "user.view",
+                    "user.edit",
+                ])
             ).toBe(true);
         });
 
-        it("returns false when one permission is missing", () => {
+        it("returns false when the user is missing a required permission", () => {
             expect(
-                hasAllPermissions(
-                    permissions,
-                    ["user.view", "user.delete"]
-                )
+                hasAllPermissions(permissions, [
+                    "user.view",
+                    "user.delete",
+                ])
             ).toBe(false);
+        });
+
+        it("returns true for an empty required permission list", () => {
+            expect(
+                hasAllPermissions(permissions, [])
+            ).toBe(true);
         });
     });
 
     describe("checkPermissions", () => {
         it("uses all mode by default", () => {
             expect(
-                checkPermissions(
-                    permissions,
-                    ["user.view", "user.create"]
-                )
+                checkPermissions(permissions, [
+                    "user.view",
+                    "user.edit",
+                ])
             ).toBe(true);
+
+            expect(
+                checkPermissions(permissions, [
+                    "user.view",
+                    "user.delete",
+                ])
+            ).toBe(false);
         });
 
         it("supports any mode", () => {
             expect(
                 checkPermissions(
                     permissions,
-                    ["user.delete", "user.create"],
+                    ["user.delete", "user.edit"],
                     "any"
                 )
             ).toBe(true);
-        });
 
-        it("supports all mode", () => {
             expect(
                 checkPermissions(
                     permissions,
-                    ["user.delete", "user.create"],
-                    "all"
+                    ["user.delete", "user.export"],
+                    "any"
                 )
             ).toBe(false);
+        });
+
+        it("returns true when no permissions are required", () => {
+            expect(
+                checkPermissions(permissions, [])
+            ).toBe(true);
         });
     });
 });
