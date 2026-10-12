@@ -1,0 +1,81 @@
+{
+  "name": "react-permissions-kit",
+  "version": "0.1.2",
+  "description": "Lightweight, zero-dependency permission and access-control (RBAC/PBAC) toolkit for React & TypeScript applications",
+  "type": "module",
+  "main": "./dist/index.cjs",
+  "module": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.js",
+      "require": "./dist/index.cjs"
+    }
+  },
+  "files": [
+    "dist",
+    "README.md",
+    "DOCUMENTATION.md",
+    "LICENSE"
+  ],
+  "keywords": [
+    "react",
+    "permissions",
+    "permission",
+    "react-permissions",
+    "react-permission",
+    "rbac",
+    "pbac",
+    "authorization",
+    "access-control",
+    "role-based-access-control",
+    "permission-management",
+    "roles",
+    "can",
+    "can-component",
+    "guard",
+    "route-guard",
+    "auth-guard",
+    "casl",
+    "security",
+    "react-hooks",
+    "hooks",
+    "zero-dependency",
+    "nextjs",
+    "typescript"
+  ],
+  "author": "Abhishek Bhatt",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/abhi714/react-permissions-kit.git"
+  },
+  "bugs": {
+    "url": "https://github.com/abhi714/react-permissions-kit/issues"
+  },
+  "homepage": "https://github.com/abhi714/react-permissions-kit#readme",
+  "license": "ISC",
+  "scripts": {
+    "build": "tsup",
+    "typecheck": "tsc --noEmit",
+    "test": "vitest run",
+    "test:watch": "vitest",
+    "prepublishOnly": "npm run typecheck && npm run test && npm run build"
+  },
+  "peerDependencies": {
+    "react": ">=18",
+    "react-dom": ">=18"
+  },
+  "devDependencies": {
+    "@testing-library/jest-dom": "^7.0.1",
+    "@testing-library/react": "^16.3.3",
+    "@types/react": "^19.0.0",
+    "@types/react-dom": "^19.0.0",
+    "jsdom": "^30.0.1",
+    "react": "^19.0.0",
+    "react-dom": "^19.0.0",
+    "tsup": "^8.0.0",
+    "typescript": "^5.9.3",
+    "vitest": "^5.0.0"
+  }
+}
