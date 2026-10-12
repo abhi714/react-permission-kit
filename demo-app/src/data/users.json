@@ -1,0 +1,68 @@
+[
+  {
+    "id": "usr_admin",
+    "name": "Alice Administrator",
+    "email": "alice@company.com",
+    "password": "password123",
+    "role": "Super Admin",
+    "avatar": "👑",
+    "permissions": [
+      "users.view",
+      "users.create",
+      "users.edit",
+      "users.delete",
+      "reports.view",
+      "reports.export",
+      "billing.manage",
+      "settings.edit"
+    ]
+  },
+  {
+    "id": "usr_editor",
+    "name": "Bob Manager",
+    "email": "bob@company.com",
+    "password": "password123",
+    "role": "Content & Operations Manager",
+    "avatar": "💼",
+    "permissions": [
+      "users.view",
+      "users.edit",
+      "reports.view",
+      "reports.export"
+    ]
+  },
+  {
+    "id": "usr_analyst",
+    "name": "Charlie Analyst",
+    "email": "charlie@company.com",
+    "password": "password123",
+    "role": "Data Analyst",
+    "avatar": "📊",
+    "permissions": [
+      "users.view",
+      "reports.view"
+    ]
+  },
+  {
+    "id": "usr_billing",
+    "name": "Diana Finance",
+    "email": "diana@company.com",
+    "password": "password123",
+    "role": "Finance & Billing Officer",
+    "avatar": "💳",
+    "permissions": [
+      "billing.manage",
+      "reports.view",
+      "reports.export"
+    ]
+  },
+  {
+    "id": "usr_guest",
+    "name": "Gary Guest",
+    "email": "gary@company.com",
+    "password": "password123",
+    "role": "Restricted Guest (No Perms)",
+    "avatar": "👤",
+    "permissions": []
+  }
+]

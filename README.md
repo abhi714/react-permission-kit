@@ -366,6 +366,25 @@ test("renders restricted button when user has permission", () => {
 
 ---
 
+## 🎮 Interactive Demo & Playground
+
+A fully interactive playground application is included in the [`demo-app/`](./demo-app) directory. It demonstrates:
+- Switching between users with simulated API delay and different permission tiers (`Super Admin`, `Manager`, `Data Analyst`, `Finance`, `Guest`).
+- Dynamic real-time permission toggling with instant UI updates.
+- Declarative `<Can />` rendering with single and multiple permissions, plus fallbacks.
+- Imperative hooks (`usePermission`, `usePermissions`) for conditional action guarding and button disabling.
+- Pure core utilities (`hasPermission`, `hasAnyPermission`, etc.).
+
+To run the demo app locally:
+
+```bash
+cd demo-app
+npm install
+npm run dev
+```
+
+---
+
 ## 🤝 Contributing
 
 Contributions are welcome! Please feel free to open issues or submit pull requests.
