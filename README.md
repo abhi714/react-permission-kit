@@ -389,7 +389,7 @@ npm run dev
 
 Contributions are welcome! Please feel free to open issues or submit pull requests.
 
-1. Clone the repository: `git clone https://github.com/abhi714/react-permission-kit.git`
+1. Clone the repository: `git clone https://github.com/abhi714/react-permissions-kit.git`
 2. Install dependencies: `npm install`
 3. Run tests: `npm test`
 4. Build bundle: `npm run build`

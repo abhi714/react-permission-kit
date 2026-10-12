@@ -34,12 +34,12 @@
   "author": "Abhishek Bhatt",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/abhi714/react-permission-kit.git"
+    "url": "git+https://github.com/abhi714/react-permissions-kit.git"
   },
   "bugs": {
-    "url": "https://github.com/abhi714/react-permission-kit/issues"
+    "url": "https://github.com/abhi714/react-permissions-kit/issues"
   },
-  "homepage": "https://github.com/abhi714/react-permission-kit#readme",
+  "homepage": "https://github.com/abhi714/react-permissions-kit#readme",
   "license": "ISC",
   "scripts": {
     "build": "tsup",
