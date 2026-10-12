@@ -1,8 +1,8 @@
-# 🛡️ react-permission-kit
+# 🛡️ react-permissions-kit
 
 A lightweight, zero-dependency, type-safe permission and access-control toolkit for React applications. Manage Role-Based (RBAC) and Permission-Based (PBAC) authorization declaratively in JSX and imperatively with hooks and pure utilities.
 
-[![npm version](https://img.shields.io/npm/v/react-permission-kit.svg)](https://www.npmjs.com/package/react-permission-kit)
+[![npm version](https://img.shields.io/npm/v/react-permissions-kit.svg)](https://www.npmjs.com/package/react-permissions-kit)
 [![License: ISC](https://img.shields.io/badge/License-ISC-blue.svg)](https://opensource.org/licenses/ISC)
 [![TypeScript](https://img.shields.io/badge/TypeScript-Ready-3178C6.svg)](https://www.typescriptlang.org/)
 [![Bundle Size](https://img.shields.io/badge/bundle%20size-%3C2%20KB-success.svg)](#)
@@ -24,20 +24,20 @@ A lightweight, zero-dependency, type-safe permission and access-control toolkit 
 
 ## 📦 Installation
 
-Install `react-permission-kit` using your package manager of choice:
+Install `react-permissions-kit` using your package manager of choice:
 
 ```bash
 # npm
-npm install react-permission-kit
+npm install react-permissions-kit
 
 # pnpm
-pnpm add react-permission-kit
+pnpm add react-permissions-kit
 
 # yarn
-yarn add react-permission-kit
+yarn add react-permissions-kit
 
 # bun
-bun add react-permission-kit
+bun add react-permissions-kit
 ```
 
 > **Peer Dependencies**: Requires `react >= 18` and `react-dom >= 18`.
@@ -53,7 +53,7 @@ Supply the current user's granted permissions array (e.g., fetched from your aut
 ```tsx
 // App.tsx
 import React from "react";
-import { PermissionProvider } from "react-permission-kit";
+import { PermissionProvider } from "react-permissions-kit";
 import { Dashboard } from "./Dashboard";
 
 export function App() {
@@ -73,7 +73,7 @@ export function App() {
 ```tsx
 // Dashboard.tsx
 import React from "react";
-import { Can } from "react-permission-kit";
+import { Can } from "react-permissions-kit";
 
 export function Dashboard() {
   return (
@@ -112,7 +112,7 @@ export function Dashboard() {
 ```tsx
 // UserActions.tsx
 import React from "react";
-import { usePermission, usePermissions } from "react-permission-kit";
+import { usePermission, usePermissions } from "react-permissions-kit";
 
 export function UserActions() {
   const canDelete = usePermission("user.delete");
@@ -226,7 +226,7 @@ const canModerate = usePermissions(["comments.delete", "posts.edit"], "any");
 
 ### 5. Pure Core Functions (Stateless)
 
-`react-permission-kit` exports its pure, stateless evaluation engine. These functions require no React context and can be executed anywhere (Node.js backend, Next.js Middleware, API routes, route loaders, utility scripts).
+`react-permissions-kit` exports its pure, stateless evaluation engine. These functions require no React context and can be executed anywhere (Node.js backend, Next.js Middleware, API routes, route loaders, utility scripts).
 
 ```ts
 import { 
@@ -234,7 +234,7 @@ import {
   hasAnyPermission, 
   hasAllPermissions, 
   checkPermissions 
-} from "react-permission-kit";
+} from "react-permissions-kit";
 
 const userPerms = ["posts.read", "posts.write"];
 
@@ -290,7 +290,7 @@ Create a reusable route wrapper for React Router v6 / v7:
 ```tsx
 import React from "react";
 import { Navigate, Outlet } from "react-router-dom";
-import { usePermissions } from "react-permission-kit";
+import { usePermissions } from "react-permissions-kit";
 
 interface ProtectedRouteProps {
   requiredPermissions: string[];
@@ -345,11 +345,11 @@ export type AppPermission = typeof APP_PERMISSIONS[keyof typeof APP_PERMISSIONS]
 
 ## 🧪 Testing
 
-`react-permission-kit` is designed to be easily tested with Vitest, Jest, and React Testing Library:
+`react-permissions-kit` is designed to be easily tested with Vitest, Jest, and React Testing Library:
 
 ```tsx
 import { render, screen } from "@testing-library/react";
-import { PermissionProvider, Can } from "react-permission-kit";
+import { PermissionProvider, Can } from "react-permissions-kit";
 
 test("renders restricted button when user has permission", () => {
   render(

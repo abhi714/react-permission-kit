@@ -14,7 +14,7 @@
   "dependencies": {
     "react": "^19.2.8",
     "react-dom": "^19.2.8",
-    "react-permission-kit": "file:.."
+    "react-permissions-kit": "file:.."
   },
   "devDependencies": {
     "@testing-library/jest-dom": "^7.0.1",

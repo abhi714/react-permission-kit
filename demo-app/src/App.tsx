@@ -7,7 +7,7 @@ import {
   hasPermission,
   hasAnyPermission,
   hasAllPermissions,
-} from "react-permission-kit";
+} from "react-permissions-kit";
 
 import usersData from "./data/users.json";
 import type { User } from "./types";
@@ -173,7 +173,7 @@ export function App() {
     <div className="demo-container">
       {/* Header */}
       <header className="header">
-        <h1>🛡️ react-permission-kit Playground</h1>
+        <h1>🛡️ react-permissions-kit Playground</h1>
         <p>
           Testing role-based access control with live credentials, dynamic API response simulation, &amp; interactive guards.
         </p>

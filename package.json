@@ -1,5 +1,5 @@
 {
-  "name": "react-permission-kit",
+  "name": "react-permissions-kit",
   "version": "0.1.0",
   "description": "Lightweight permission management for React applications",
   "type": "module",

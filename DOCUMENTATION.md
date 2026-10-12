@@ -1,6 +1,6 @@
-# 📚 `react-permission-kit` Technical Documentation & Architectural Guide
+# 📚 `react-permissions-kit` Technical Documentation & Architectural Guide
 
-Welcome to the technical documentation for **`react-permission-kit`** — a high-performance, type-safe, zero-dependency authorization and access-control toolkit for React and modern JavaScript/TypeScript ecosystems.
+Welcome to the technical documentation for **`react-permissions-kit`** — a high-performance, type-safe, zero-dependency authorization and access-control toolkit for React and modern JavaScript/TypeScript ecosystems.
 
 ---
 
@@ -29,7 +29,7 @@ Welcome to the technical documentation for **`react-permission-kit`** — a high
 
 ## 1. Architectural Overview
 
-`react-permission-kit` is structured into three cleanly decoupled layers:
+`react-permissions-kit` is structured into three cleanly decoupled layers:
 
 ```
 ┌─────────────────────────────────────────────────────────────┐
@@ -95,7 +95,7 @@ sequenceDiagram
 
 ### Core Stateless Engine
 
-Imported directly from `react-permission-kit`:
+Imported directly from `react-permissions-kit`:
 
 ```ts
 import { 
@@ -103,7 +103,7 @@ import {
   hasAnyPermission, 
   hasAllPermissions, 
   checkPermissions 
-} from "react-permission-kit";
+} from "react-permissions-kit";
 ```
 
 #### `hasPermission(permissions, permission): boolean`
@@ -145,7 +145,7 @@ Unified permission evaluation engine.
 The central state provider for component subtrees.
 
 ```tsx
-import { PermissionProvider } from "react-permission-kit";
+import { PermissionProvider } from "react-permissions-kit";
 
 <PermissionProvider permissions={userPermissions}>
   {children}
@@ -168,7 +168,7 @@ import { PermissionProvider } from "react-permission-kit";
 Verifies a single permission against the nearest `<PermissionProvider>`.
 
 ```tsx
-import { usePermission } from "react-permission-kit";
+import { usePermission } from "react-permissions-kit";
 
 function EditPostButton() {
   const canEdit = usePermission("posts.edit");
@@ -191,7 +191,7 @@ function EditPostButton() {
 Verifies multiple permissions simultaneously.
 
 ```tsx
-import { usePermissions } from "react-permission-kit";
+import { usePermissions } from "react-permissions-kit";
 
 function BillingReportSection() {
   // Requires both view AND export permissions
@@ -216,7 +216,7 @@ function BillingReportSection() {
 Conditionally renders JSX based on permissions.
 
 ```tsx
-import { Can } from "react-permission-kit";
+import { Can } from "react-permissions-kit";
 
 <Can
   permission="orders.delete"
@@ -258,7 +258,7 @@ import type {
   PermissionContextValue, 
   PermissionProviderProps, 
   CanProps 
-} from "react-permission-kit";
+} from "react-permissions-kit";
 ```
 
 ```ts
@@ -318,7 +318,7 @@ In Next.js App Router, use client-side `<PermissionProvider>` for interactive co
 // app/providers.tsx (Client Component)
 "use client";
 
-import { PermissionProvider } from "react-permission-kit";
+import { PermissionProvider } from "react-permissions-kit";
 
 export function ClientProviders({ 
   permissions, 
@@ -339,7 +339,7 @@ export function ClientProviders({
 // app/actions/user-actions.ts (Server Action / Server-side)
 "use server";
 
-import { hasPermission } from "react-permission-kit";
+import { hasPermission } from "react-permissions-kit";
 import { getCurrentUser } from "@/lib/auth";
 
 export async function deleteUserAction(targetUserId: string) {
@@ -364,7 +364,7 @@ Guarding entire subtrees and routes:
 // components/PermissionRouteGuard.tsx
 import React from "react";
 import { Navigate, Outlet } from "react-router-dom";
-import { usePermissions } from "react-permission-kit";
+import { usePermissions } from "react-permissions-kit";
 
 interface Props {
   requiredPermissions: string[];
@@ -411,7 +411,7 @@ export function AppRoutes() {
 #### With Zustand:
 ```tsx
 import create from "zustand";
-import { PermissionProvider } from "react-permission-kit";
+import { PermissionProvider } from "react-permissions-kit";
 
 interface AuthState {
   user: { id: string; email: string; permissions: string[] } | null;
@@ -440,7 +440,7 @@ export function RootLayout({ children }: { children: React.ReactNode }) {
 ```tsx
 import { useEffect, useState } from "react";
 import { supabase } from "@/lib/supabaseClient";
-import { PermissionProvider } from "react-permission-kit";
+import { PermissionProvider } from "react-permissions-kit";
 
 export function AuthWrapper({ children }: { children: React.ReactNode }) {
   const [permissions, setPermissions] = useState<string[]>([]);
@@ -473,7 +473,7 @@ export function AuthWrapper({ children }: { children: React.ReactNode }) {
 > **Client-Side vs Server-Side Enforcement**:
 > Client-side permission checks improve User Experience (UX) by concealing buttons, forms, and pages that a user cannot access. However, **client-side checks can be bypassed by knowledgeable actors**.
 > 
-> **Always enforce permission checks on the backend / API layer** in addition to frontend UI checks with `react-permission-kit`.
+> **Always enforce permission checks on the backend / API layer** in addition to frontend UI checks with `react-permissions-kit`.
 
 1. **Principle of Least Privilege**: Grant users only the minimum necessary permissions.
 2. **Granular Permissions over Generic Roles**: Favor permission strings (e.g. `"invoices:export"`) over monolithic roles (e.g. `"admin"`). This allows easy role modification without altering UI code.
@@ -488,7 +488,7 @@ Using Vitest and React Testing Library:
 ```tsx
 import { describe, it, expect } from "vitest";
 import { render, screen } from "@testing-library/react";
-import { PermissionProvider, Can } from "react-permission-kit";
+import { PermissionProvider, Can } from "react-permissions-kit";
 
 describe("Access Control in Dashboard", () => {
   it("renders export button for authorized users", () => {
